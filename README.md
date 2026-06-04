@@ -24,16 +24,7 @@ Lo siguiente no sigue las especificaciones al 100%, pero me parecen detalles que
 
 Para el listado de dispensadores necesitamos un endpoint nuevo que retorne todos los dispensadores, lo creamos también.
 
-## Instalación
-
-```bash
-npm install
-npm run dev
-```
-
-El backend debe estar corriendo en `http://localhost:8080`.
-
-## Deploy
+## Instalación/Deploy
 
 Me parece un poco engorroso tener que instalar desde el repositorio con instrucciones, por eso lo dejo desplegado online para que se pueda usar con más comodidad.
 
