@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Beer Tap Dispenser
 
-## Getting Started
+Frontend para un sistema de dispensadores de cerveza. Selecciona un dispensador, mantenlo pulsado para servirte y suelta para cerrar el grifo.
 
-First, run the development server:
+## Tecnologías
+
+- **Frontend:** React + TypeScript + Next.js + Tailwind CSS
+- **Backend:** Java + Spring Boot + PostgreSQL
+- **Hosting:** Cloudflare Pages (frontend), Railway (backend)
+
+## Desarrollo
+
+He usado Java + Spring Boot para el backend, con lo que me siento más cómodo y además lo que ya tenía instalado en mi PC. Para front, lo que se pedía de React + TS + Next.js, usando Tailwind.
+
+Empezamos creando el backend estrictamente como se pide en la práctica. Usamos JUnit para los tests.
+
+Para el diseño de la aplicación he intentado basarme en dispensadores que me he podido encontrar. Decido hacer una página principal para el usuario donde seleccionar un dispensador de un listado horizontal que se puede ir moviendo. Al seleccionar uno podemos abrir o cerrar el grifo.
+
+Tenemos el panel de administración con botones para añadir dispensador o consultar sus usos. Creamos un componente de rutas protegidas para la sección de administración.
+
+Basándome en posibles modelos reales, me parece buena idea que el dispensador funcione con el ratón down/up.
+
+Lo siguiente no sigue las especificaciones al 100%, pero me parecen detalles que pueden aportar. Decido añadirle un campo de nombre a los dispensadores, que lo hace más visual en la aplicación y permite una mejor identificación para el usuario.
+
+Para el listado de dispensadores necesitamos un endpoint nuevo que retorne todos los dispensadores, lo creamos también.
+
+## Instalación
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+El backend debe estar corriendo en `http://localhost:8080`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deploy
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Me parece un poco engorroso tener que instalar desde el repositorio con instrucciones, por eso lo dejo desplegado online para que se pueda usar con más comodidad.
 
-## Learn More
+- **Frontend:** [beer-tap-dispenser.pages.dev](https://beer-tap-dispenser.pages.dev)
+- **Backend:** [web-production-b8ed9.up.railway.app](https://web-production-b8ed9.up.railway.app)
 
-To learn more about Next.js, take a look at the following resources:
+## Pasos pendientes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Falta crear la consulta de usos de los dispensadores. La idea sería un botón similar al de crear dispensador; al hacer clic sale una lista como la de la página principal y al seleccionar un dispensador nos muestra la información de éste.
